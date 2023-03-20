@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import styles from "./categories.module.css";
 import { getProductByCategory } from "../../api";
 
-import ProductItem from "./ProductItem";
+import ShopList from "../ShopList";
 
 const AccessoryPage = () => {
   const [products, setProducts] = useState([]);
@@ -14,16 +15,22 @@ const AccessoryPage = () => {
     fetchProducts();
   }, []);
 
-  console.log(products);
-
   return (
-    <section>
-      <h2>액세서리</h2>
-      <ul>
-        {products.map((product, index) => (
-          <ProductItem key={index} product={product} />
-        ))}
-      </ul>
+    <section className={styles.container}>
+      <div className={styles.menuArea}>
+        <ul className={styles.menuList}>
+          <li className={styles.menuHome}>홈</li>
+          <li className={styles.menuCategory}>액세서리</li>
+        </ul>
+      </div>
+      <div className={styles.productArea}>
+        <h2 className={styles.productTitle}>액세서리</h2>
+        <ul className={styles.productList}>
+          {products.map((product, idx) => (
+            <ShopList product={product} key={idx} />
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };

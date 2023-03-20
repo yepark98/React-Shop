@@ -11,7 +11,8 @@ const ShopList = (props: ShopListProps) => {
   const { product } = props;
 
   const navigate = useNavigate();
-  const price = product.price.toFixed();
+  const fixedPrice = product.price.toFixed();
+  const price = fixedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
     <li

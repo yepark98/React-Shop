@@ -1,0 +1,41 @@
+.container {
+  margin: 0 auto;
+  padding: 84px 16px 32px;
+  width: 1360px;
+  min-height: calc(100vh - 4rem - 224px);
+}
+
+.menuArea {
+  padding: 8px 0;
+}
+
+.menuList {
+  margin: 0;
+  display: flex;
+  font-size: 14px;
+  color: #a6adba;
+}
+
+.menuCategory::before {
+  content: ">";
+  margin: 0 12px 0 8px;
+}
+
+.productArea {
+  padding: 16px 16px 32px;
+  margin-bottom: 80px;
+}
+
+.productTitle {
+  margin: 0 0 32px;
+  font-size: 36px;
+  text-align: center;
+  color: #a6adba;
+}
+
+.productList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 29px;
+}
