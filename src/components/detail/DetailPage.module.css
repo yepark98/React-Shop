@@ -1,0 +1,114 @@
+.container {
+  margin: 0 auto;
+  padding: 84px 8px 32px;
+  width: 1360px;
+  min-height: calc(100vh - 4rem - 224px);
+}
+
+.menuArea {
+  padding: 8px 0;
+}
+
+.menuList {
+  display: flex;
+  margin: 0;
+  font-size: 14px;
+  color: #a6adba;
+}
+
+.menuCategory::before {
+  content: ">";
+  margin: 0 12px 0 8px;
+}
+
+.detailArea {
+  display: flex;
+  margin-top: 56px;
+}
+
+.ImgaeArea {
+  margin: 0;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.image {
+  object-fit: contain;
+  width: 288px;
+  height: 288px;
+}
+
+.descriptionArea {
+  display: grid;
+  padding: 32px 48px;
+  text-align: left;
+  color: #a6adba;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.title::after {
+  content: "NEW";
+  margin-left: 8px;
+  padding: 0 9px;
+  font-size: 14px;
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: #1fb2a6;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.starRating {
+  display: flex;
+  align-items: center;
+}
+
+.count {
+  margin-left: 8px;
+}
+
+.price {
+  margin: 8px 0 16px;
+  font-size: 30px;
+}
+
+.button {
+  padding: 0 16px;
+  height: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 0;
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.buttonIn {
+  background-color: #641ae6;
+}
+
+.buttonIn:hover {
+  background-color: #4a08bd;
+}
+
+.buttonOut {
+  margin-left: 10px;
+  border: 1px solid #a6adba;
+  color: #a6adba;
+  background-color: initial;
+}
+
+.buttonOut:hover {
+  color: initial;
+  background-color: #a6adba;
+}

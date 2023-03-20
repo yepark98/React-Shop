@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./categories.module.css";
+import styles from "./Categories.module.css";
 import { getProductByCategory } from "./../../api/index";
 
 import ShopList from "../ShopList";

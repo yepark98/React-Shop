@@ -11,13 +11,13 @@ const ShopList = (props: ShopListProps) => {
   const { product } = props;
 
   const navigate = useNavigate();
-  const fixedPrice = product.price.toFixed();
+  const fixedPrice = Math.round(product.price);
   const price = fixedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
     <li
       className={styles.productItem}
-      onClick={() => navigate(`product/${product.id}`)}
+      onClick={() => navigate(`/product/${product.id}`)}
     >
       <figure className={styles.productImageArea}>
         <img src={product.image} alt="" className={styles.productImage} />
