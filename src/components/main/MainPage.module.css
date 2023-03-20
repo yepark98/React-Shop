@@ -1,0 +1,21 @@
+.container {
+  margin: 40px auto 80px;
+  padding: 20px 8px 32px;
+  width: 1360px;
+}
+
+.categoryArea {
+  padding: 48px 8px 32px;
+}
+
+.title {
+  font-size: 36px;
+  margin: 0 0 32px;
+  color: #a6adba;
+  text-align: center;
+}
+
+.productList {
+  display: flex;
+  justify-content: space-between;
+}

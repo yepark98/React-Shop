@@ -1,0 +1,121 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  color: #ffffff;
+  background-color: #191e24;
+}
+
+.nav {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 8px;
+  max-width: 1360px;
+  height: 64px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.categoryList {
+  display: flex;
+  padding-left: 0;
+  margin-left: 8px;
+}
+
+.categoryItem {
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.right {
+  display: flex;
+}
+
+.search {
+  display: inline-block;
+  position: relative;
+}
+
+.searchInput {
+  width: 222px;
+  height: 48px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #4b5563;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchList {
+  position: absolute;
+  margin-top: 8px;
+  width: 256px;
+  max-height: 384px;
+  overflow: auto;
+  z-index: 1;
+  background-color: #4b5563;
+}
+
+.searchItem {
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.searchItem:hover {
+  border-radius: 5px;
+  background-color: #dbdbdb1c;
+}
+
+.searchItem:active {
+  background-color: #6419e6;
+}
+
+.cart {
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  padding: 0 16px;
+  margin-left: 4px;
+  height: 46px;
+  width: 48px;
+}
+
+.cartIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.cartCount {
+  box-sizing: border-box;
+  position: absolute;
+  margin: 0 0px 15px 13px;
+  padding: 4px 8px;
+  width: 23px;
+  height: 23px;
+  font-size: 12px;
+  color: #e5e7eb;
+  background-color: #fe4444;
+  border-radius: 50%;
+}

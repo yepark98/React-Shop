@@ -1,0 +1,10 @@
+.footer {
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  padding: 40px;
+  height: 288px;
+  font-size: 14px;
+  color: #a6adba;
+  background-color: #252934;
+}

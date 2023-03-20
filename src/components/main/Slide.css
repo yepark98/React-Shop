@@ -1,0 +1,49 @@
+.thumbs-wrapper {
+  display: none;
+}
+
+.carousel-status {
+  display: none;
+}
+
+.carousel__image {
+  object-fit: cover;
+}
+
+.carousel__descriptionArea {
+  position: absolute;
+  padding: 0 40px;
+  width: 100%;
+  bottom: 250px;
+  font-size: 12px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.carousel__description {
+  margin: 0 auto 40px;
+  width: 1360px;
+}
+
+.carousel__descriptionTitle {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.carousel__descriptionSubTitle {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.carousel__descriptionButton {
+  margin-top: 12px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 10px;
+  height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #a6adba;
+  background-color: #191d24;
+}
