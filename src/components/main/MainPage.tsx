@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./MainPage.module.css";
-import { getProductByCategory } from "./../../api/index";
+import { getProductByCategory } from "../../service/index";
 import { Product } from "./../../type/Product";
 
 import CarouselArea from "./CarouselArea";

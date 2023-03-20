@@ -1,0 +1,39 @@
+.container {
+  margin: 0 auto;
+  width: 1360px;
+  min-height: calc(100vh - 4rem - 224px);
+}
+
+.errorTitle {
+  margin: 112px 0 0;
+  color: #a6adba;
+  font-size: 128px;
+  font-weight: 700;
+}
+
+.errorSubTitle {
+  margin: 0 0 40px;
+  font-size: 30px;
+  color: #a6adba;
+}
+
+.button {
+  padding: 0 24px;
+  width: 153px;
+  height: 63px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  color: #ffffff;
+}
+
+.buttonIn {
+  background-color: #641ae6;
+}
+
+.buttonIn:hover {
+  background-color: #4a08bd;
+}

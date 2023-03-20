@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./DetailPage.module.css";
 import { Link, useParams } from "react-router-dom";
-import { getProductBySingle } from "../../api";
+import { getProductBySingle } from "../../service";
 import { Product } from "../../type/Product";
 
 const DetailPage = () => {
@@ -43,7 +43,9 @@ const DetailPage = () => {
           <p className={styles.description}>{product.description}</p>
           <div className={styles.starRating}>
             <div>☆☆☆☆☆</div>
-            <div className={styles.count}> 2.2 / 140 참여</div>
+            <div className={styles.count}>
+              {product.rating?.rate} / {product.rating?.count} 참여
+            </div>
           </div>
           <p className={styles.price}>{`$${price}`}</p>
           <div>
