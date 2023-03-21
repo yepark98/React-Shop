@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
-import { HiOutlineShoppingBag } from "react-icons/hi";
-import Search from "./Search";
 import { useRecoilState } from "recoil";
 import { cartsState } from "../recoil/atom";
+import { HiOutlineShoppingBag } from "react-icons/hi";
+import { FiSun } from "react-icons/fi";
+
+import Search from "./Search";
 
 const Header = () => {
   const [carts, setCarts] = useRecoilState(cartsState);
@@ -31,6 +33,7 @@ const Header = () => {
           </ul>
         </div>
         <div className={styles.right}>
+          <FiSun className={styles.lightMode} />
           <Search />
           <Link to={"cart"} className={styles.cart}>
             <span>
