@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 
 import Header from "./components/Header";
 import MainPage from "./components/main/MainPage";
@@ -14,21 +15,23 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="fashion" element={<FashionPage />} />
-          <Route path="accessory" element={<AccessoryPage />} />
-          <Route path="digital" element={<DigitalPage />} />
-          <Route path="product/:id" element={<DetailPage />} />
-          <Route path="cart" element={<CartPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <RecoilRoot>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="fashion" element={<FashionPage />} />
+            <Route path="accessory" element={<AccessoryPage />} />
+            <Route path="digital" element={<DigitalPage />} />
+            <Route path="product/:id" element={<DetailPage />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 
