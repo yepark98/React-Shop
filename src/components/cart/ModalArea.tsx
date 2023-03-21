@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./ModalArea.module.css";
 import { useRecoilState } from "recoil";
-import { cartState, modalState } from "../../recoil/atom";
+import { cartsState, modalState } from "../../recoil/atom";
 
 const ModalArea = () => {
   const [modal, setModal] = useRecoilState(modalState);
-  const [cart, setCart] = useRecoilState(cartState);
+  const [carts, setCarts] = useRecoilState(cartsState);
 
   const handleClickYes = () => {
-    setCart([]);
+    setCarts([]);
     setModal(false);
   };
 

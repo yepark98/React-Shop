@@ -3,8 +3,12 @@ import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import Search from "./Search";
+import { useRecoilState } from "recoil";
+import { cartsState } from "../recoil/atom";
 
 const Header = () => {
+  const [carts, setCarts] = useRecoilState(cartsState);
+
   const categories = [
     { name: "fashion", title: "패션" },
     { name: "accessory", title: "악세사리" },
@@ -32,7 +36,7 @@ const Header = () => {
             <span>
               <HiOutlineShoppingBag className={styles.cartIcon} />
             </span>
-            <span className={styles.cartCount}>0</span>
+            <span className={styles.cartCount}>{carts.length}</span>
           </Link>
         </div>
       </section>

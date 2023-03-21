@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./CartPage.module.css";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { modalState } from "./../../recoil/atom";
+import { cartsState, modalState } from "./../../recoil/atom";
 
 import CartList from "./CartList";
 import ModalAear from "./ModalArea";
 
 const CartPage = () => {
-  const [carts, setCarts] = useState(false);
+  const [carts, setCarts] = useRecoilState(cartsState);
   const [modal, setModal] = useRecoilState(modalState);
 
   const navigate = useNavigate();
+
+  const totalPrice = carts.reduce((acc, cur) => acc + cur.price * cur.count, 0);
+  const fixedPrice = Math.round(totalPrice);
+  const price = fixedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   return (
     <section className={styles.container}>
@@ -22,7 +26,7 @@ const CartPage = () => {
         </ul>
       </div>
       <div className={styles.cartArea}>
-        {!carts && (
+        {carts.length === 0 && (
           <div className={styles.cartNull}>
             <h2 className={styles.cartNullTitle}>
               장바구니에 물품이 없습니다.
@@ -38,13 +42,15 @@ const CartPage = () => {
         <div className={styles.cart}>
           {carts ? (
             <ul>
-              <CartList />
+              {carts.map((cart) => (
+                <CartList key={cart.id} product={cart} />
+              ))}
             </ul>
           ) : (
             <div></div>
           )}
           <div className={styles.cartPrice}>
-            <span className={styles.totalPrice}>총: $0</span>
+            <span className={styles.totalPrice}>총: ${price}</span>
             <button
               className={`${styles.button} ${styles.buttonleft}`}
               onClick={() => setModal(true)}

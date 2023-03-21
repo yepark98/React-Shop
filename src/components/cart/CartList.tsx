@@ -1,18 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./CartList.module.css";
-import { getProductBySingle } from "../../service";
-import { Product } from "../../type/Product";
+import { useRecoilState } from "recoil";
+import { cartsState } from "../../recoil/atom";
+import { Cart } from "../../type/Cart";
 
-const CartList = () => {
-  const [product, setProduct] = useState<Product>({} as Product);
+interface CartListProps {
+  product: Cart;
+}
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const detailResponse = await getProductBySingle(1);
-      setProduct(detailResponse);
-    };
-    fetchProduct();
-  }, []);
+const CartList = (props: CartListProps) => {
+  const [carts, setCarts] = useRecoilState(cartsState);
+
+  const { product } = props;
+
+  const handleClickPlus = () => {
+    const copyCarts = [...carts];
+    const findCartId = copyCarts.find((cart) => cart.id === product.id);
+
+    if (findCartId) {
+      const copyFindCartId = { ...findCartId };
+      copyFindCartId.count += 1;
+      const cartIndex = copyCarts.findIndex((cart) => cart.id === product.id);
+      copyCarts.splice(cartIndex, 1, copyFindCartId);
+    }
+    setCarts(copyCarts);
+  };
+
+  const handleClickMinus = () => {
+    const copyCarts = [...carts];
+    const findCartId = copyCarts.find((cart) => cart.id === product.id);
+
+    if (findCartId) {
+      const copyFindCartId = { ...findCartId };
+      copyFindCartId.count -= 1;
+      const cartIndex = copyCarts.findIndex((cart) => cart.id === product.id);
+      copyCarts.splice(cartIndex, 1, copyFindCartId);
+      if (copyFindCartId.count === 0) {
+        copyFindCartId.count -= 1;
+        copyCarts.splice(cartIndex, 1);
+      }
+    }
+    setCarts(copyCarts);
+  };
 
   const fixedPrice = Math.round(product.price);
   const price = fixedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -25,12 +54,16 @@ const CartList = () => {
         </figure>
         <div className={styles.cartArea}>
           <h2 className={styles.title}>{product.title}</h2>
-          <p className={styles.price}>${price}</p>
+          <p className={styles.price}>${product.count * Number(price)}</p>
           <div>
             <div>
-              <button className={styles.countBtn}>-</button>
-              <button className={styles.count}>1</button>
-              <button className={styles.countBtn}>+</button>
+              <button className={styles.countBtn} onClick={handleClickMinus}>
+                -
+              </button>
+              <button className={styles.count}>{product.count}</button>
+              <button className={styles.countBtn} onClick={handleClickPlus}>
+                +
+              </button>
             </div>
           </div>
         </div>
